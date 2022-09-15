@@ -1,0 +1,31 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Регионы и часовые пояса</h1>
+
+<table class="table table-bordered">
+<thead>
+  <tr>
+    <th>№</th>
+    <th>Наименование</th>
+    <th>Часовой пояс</th>
+    <th colspan="2"></th>
+  </tr>
+</thead>
+<tbody>
+  
+    <% @regions.each do |region| %>
+      <tr>
+        <td><%= region.id %></td>        
+        <td><%= region.title %></td>
+        <td><%= region.timezone %></td>
+
+        <td><%= link_to 'Редактировать', edit_region_path(region) %></td>
+        
+
+      </tr>
+    <% end %>    
+  
+</tbody>
+</table>
+
+

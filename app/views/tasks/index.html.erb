@@ -1,0 +1,36 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Задачи</h1>
+
+
+<%= link_to "Добавить задачу", new_task_path %>
+
+<table class="table table-bordered">
+<thead>
+  <tr>
+    <th>№</th>
+    <th>Дата начала</th>
+    <th>Дата завершения</th>
+    <th>Статус</th>
+    <th colspan="2"></th>
+  </tr>
+</thead>
+<tbody>
+  
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.id %></td>
+        <td><%= task.created_at %></td>
+        <td><%= task.updated_at %></td>
+        <td><%= task.status %></td>
+<% if task.status == "Выполнена" %>
+        <td><%= link_to 'Выгрузить результат', task %></td>
+        <td><%= link_to 'Удалить', task, method: :delete, data: { confirm: 'Подтвердить?' } %></td>
+<% end %>
+      </tr>
+    <% end %>    
+  
+</tbody>
+</table>
+
+

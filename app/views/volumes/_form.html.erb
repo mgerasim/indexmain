@@ -1,0 +1,52 @@
+<%= form_with(model: volume) do |form| %>
+  <% if volume.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(volume.errors.count, "error") %> prohibited this volume from being saved:</h2>
+
+      <ul>
+        <% volume.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :code, style: "display: block" %>
+    <%= form.number_field :code %>
+  </div>
+
+  <div>
+    <%= form.label :begin, style: "display: block" %>
+    <%= form.number_field :begin %>
+  </div>
+
+  <div>
+    <%= form.label :end, style: "display: block" %>
+    <%= form.number_field :end %>
+  </div>
+
+  <div>
+    <%= form.label :size, style: "display: block" %>
+    <%= form.number_field :size %>
+  </div>
+
+  <div>
+    <%= form.label :operator, style: "display: block" %>
+    <%= form.text_field :operator %>
+  </div>
+
+  <div>
+    <%= form.label :region, style: "display: block" %>
+    <%= form.text_field :region %>
+  </div>
+
+  <div>
+    <%= form.label :unn, style: "display: block" %>
+    <%= form.text_field :unn %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
