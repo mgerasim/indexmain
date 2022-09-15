@@ -25,7 +25,7 @@
         <td><%= task.status %></td>
 <% if task.status == "Выполнена" %>
         <td><%= link_to 'Выгрузить результат', task %></td>
-        <td><%= link_to 'Удалить', task, method: :delete, data: { confirm: 'Подтвердить?' } %></td>
+        <td><%= button_to 'Удалить', task, method: :delete, data: { confirm: 'Подтвердить?' } %></td>
 <% end %>
       </tr>
     <% end %>    

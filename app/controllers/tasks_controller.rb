@@ -77,8 +77,16 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
 
+    if @task.filename_input != nil 
+      File.delete(@task.filename_input) if File.exist?(@task.filename_input)
+    end
+
+    if @task.filename_output != nil
+      File.delete(@task.filename_output) if File.exist?(@task.filename_output)
+    end
+
     respond_to do |format|
-      format.html { redirect_to tasks_url, notice: "Task was successfully destroyed." }
+      format.html { redirect_to tasks_url, notice: "Задача успешно удалена." }
       format.json { head :no_content }
     end
   end

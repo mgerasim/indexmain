@@ -1,0 +1,17 @@
+[Unit]
+Description=IndexMain App
+
+[Service]
+WorkingDirectory=/home/rails/projects/indexmain
+ExecStart=/bin/bash -l -c 'cd /home/rails/projects/indexmain && source ~/.bashrc && rails s -p 2999 -b 0.0.0.0'
+Restart=always
+# Restart service after 10 seconds if the dotnet service crashes:
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=indexmain-app
+User=rails
+Envirement=SECRET_KEY_BASE=d0498ebab49bd3da5faa27c7e93a73662f443d1de577a0ad97e1991a72d46ae0eee5353dcae19fc4560bd9ef76e06474fb6387395ba4536d24e8c582bba96e80
+
+
+[Install]
+WantedBy=multi-user.target
